@@ -3,14 +3,13 @@
 #include "LX_FC_Fun.h"
 #include "Ano_Math.h"
 
+#define Height_80cm  80
 #define Vel_LIMIT 12.0f
 #define alpha 0
 
 static s32 start_point_xyz[2];
 // start_point(100,100)
-static s32 expect_point_xy[5][2] = {{0, 150}, {100,150}, {100,250}, {50,250}, {50,200}};  // Broken line
-
-
+static s32 expect_point_xy[5][2] = {{0, 150}, {100,150}, {100,250}, {20,250}, {20,20}};  // Broken line
 
 void UserTask_OneKeyCmd(void)
 {
@@ -112,8 +111,10 @@ void UserTask_OneKeyCmd(void)
 								time_dly_cnt_ms = 0;
 								mission_step += FC_Unlock();//½âËø
 								// 	Get initial position | New coordinate(0, 0)
-								start_point_xyz[0] = UWB_DATA.pos_x;
-								start_point_xyz[1] = UWB_DATA.pos_y;
+								// start_point_xyz[0] = UWB_DATA.pos_x;
+								// start_point_xyz[1] = UWB_DATA.pos_y;
+								start_point_xyz[0] = mid360_DATA.pos_x;
+								start_point_xyz[1] = mid360_DATA.pos_y;
 							}		
 						}
 						break;
@@ -127,7 +128,7 @@ void UserTask_OneKeyCmd(void)
 							else
 							{
 							// Hight: 120cm
-								mission_step += OneKey_Takeoff(80);//Æð·É
+								mission_step += OneKey_Takeoff(Height_80cm);//Æð·É
 							}								
 						}
 						break;
@@ -149,19 +150,22 @@ void UserTask_OneKeyCmd(void)
 						break;		
 						case 4:
 						{
-							// vel_z = 0
-							rt_tar.st_data.vel_z = 0;
-							// Position difference differential speed output
-							real_X = UWB_DATA.pos_x - start_point_xyz[0];
-							real_Y = UWB_DATA.pos_y - start_point_xyz[1];
-							
-							S_LPF_1(0.5, (expect_point_xy[0][0] - real_X)*0.5, LPFout_x);
-							S_LPF_1(0.5, (expect_point_xy[0][1] - real_Y)*0.5, LPFout_y);		
-							
-							rt_tar.st_data.vel_x = LIMIT(alpha*UWB_DATA.vel_x+(1-alpha)*LPFout_x, -Vel_LIMIT, Vel_LIMIT);
-							rt_tar.st_data.vel_y = LIMIT(alpha*UWB_DATA.vel_y+(1-alpha)*LPFout_y, -Vel_LIMIT, Vel_LIMIT);
+							// Altitude control
+							rt_tar.st_data.vel_z = height_control(ano_of.of_alt_cm,Height_80cm);
 
-							if(ABS(real_X-expect_point_xy[0][0])<10&&ABS(real_Y-expect_point_xy[0][1])<10)
+							// Position difference differential speed output
+							real_X = mid360_DATA.pos_x - start_point_xyz[0];
+							real_Y = mid360_DATA.pos_y - start_point_xyz[1];
+							rt_tar.st_data.vel_x = LIMIT((expect_point_xy[0][0]-real_X)*0.5, -Vel_LIMIT, Vel_LIMIT);
+              rt_tar.st_data.vel_y = LIMIT((expect_point_xy[0][1]-real_Y)*0.5, -Vel_LIMIT, Vel_LIMIT);
+							
+							// S_LPF_1(0.5, (expect_point_xy[0][0] - real_X)*0.5, LPFout_x);
+							// S_LPF_1(0.5, (expect_point_xy[0][1] - real_Y)*0.5, LPFout_y);		
+							
+							// rt_tar.st_data.vel_x = LIMIT(alpha*UWB_DATA.vel_x+(1-alpha)*LPFout_x, -Vel_LIMIT, Vel_LIMIT);
+							// rt_tar.st_data.vel_y = LIMIT(alpha*UWB_DATA.vel_y+(1-alpha)*LPFout_y, -Vel_LIMIT, Vel_LIMIT);
+
+							if(ABS(real_X-expect_point_xy[0][0])<5&&ABS(real_Y-expect_point_xy[0][1])<5)
 							{
 							// wait 1s
 								if(time_dly_cnt_ms<2000)
@@ -178,19 +182,21 @@ void UserTask_OneKeyCmd(void)
 						break;
 						case 5:
 						{
-							// vel_z = 0
-							rt_tar.st_data.vel_z = 0;
+							// Altitude control
+							rt_tar.st_data.vel_z = height_control(ano_of.of_alt_cm,Height_80cm);
 							// Position difference differential speed output
-							real_X = UWB_DATA.pos_x - start_point_xyz[0];
-							real_Y = UWB_DATA.pos_y - start_point_xyz[1];
+							real_X = mid360_DATA.pos_x - start_point_xyz[0];
+							real_Y = mid360_DATA.pos_y - start_point_xyz[1];
+							rt_tar.st_data.vel_x = LIMIT((expect_point_xy[1][0]-real_X)*0.5, -Vel_LIMIT, Vel_LIMIT);
+              rt_tar.st_data.vel_y = LIMIT((expect_point_xy[1][1]-real_Y)*0.5, -Vel_LIMIT, Vel_LIMIT);
 							
-							S_LPF_1(0.5, (expect_point_xy[1][0] - real_X)*0.5, LPFout_x);
-							S_LPF_1(0.5, (expect_point_xy[1][1] - real_Y)*0.5, LPFout_y);		
+							// S_LPF_1(0.5, (expect_point_xy[1][0] - real_X)*0.5, LPFout_x);
+							// S_LPF_1(0.5, (expect_point_xy[1][1] - real_Y)*0.5, LPFout_y);		
 							
-							rt_tar.st_data.vel_x = LIMIT(alpha*UWB_DATA.vel_x+(1-alpha)*LPFout_x, -Vel_LIMIT, Vel_LIMIT);
-							rt_tar.st_data.vel_y = LIMIT(alpha*UWB_DATA.vel_y+(1-alpha)*LPFout_y, -Vel_LIMIT, Vel_LIMIT);
+							// rt_tar.st_data.vel_x = LIMIT(alpha*UWB_DATA.vel_x+(1-alpha)*LPFout_x, -Vel_LIMIT, Vel_LIMIT);
+							// rt_tar.st_data.vel_y = LIMIT(alpha*UWB_DATA.vel_y+(1-alpha)*LPFout_y, -Vel_LIMIT, Vel_LIMIT);
 
-							if(ABS(real_X-expect_point_xy[1][0])<10&&ABS(real_Y-expect_point_xy[1][1])<10)
+							if(ABS(real_X-expect_point_xy[1][0])<5&&ABS(real_Y-expect_point_xy[1][1])<5)
 							{
 							// wait 1s
 								if(time_dly_cnt_ms<2000)
@@ -207,19 +213,21 @@ void UserTask_OneKeyCmd(void)
 						break;
 						case 6:
 						{
-							// vel_z = 0
-							rt_tar.st_data.vel_z = 0;
-				// Position difference differential speed output
-							real_X = UWB_DATA.pos_x - start_point_xyz[0];
-							real_Y = UWB_DATA.pos_y - start_point_xyz[1];
+							// Altitude control
+							rt_tar.st_data.vel_z = height_control(ano_of.of_alt_cm,Height_80cm);
+							// Position difference differential speed output
+							real_X = mid360_DATA.pos_x - start_point_xyz[0];
+							real_Y = mid360_DATA.pos_y - start_point_xyz[1];
+							rt_tar.st_data.vel_x = LIMIT((expect_point_xy[2][0]-real_X)*0.5, -Vel_LIMIT, Vel_LIMIT);
+              rt_tar.st_data.vel_y = LIMIT((expect_point_xy[2][1]-real_Y)*0.5, -Vel_LIMIT, Vel_LIMIT);
 							
-							S_LPF_1(0.5, (expect_point_xy[2][0] - real_X)*0.5, LPFout_x);
-							S_LPF_1(0.5, (expect_point_xy[2][1] - real_Y)*0.5, LPFout_y);		
+							// S_LPF_1(0.5, (expect_point_xy[2][0] - real_X)*0.5, LPFout_x);
+							// S_LPF_1(0.5, (expect_point_xy[2][1] - real_Y)*0.5, LPFout_y);		
 							
-							rt_tar.st_data.vel_x = LIMIT(alpha*UWB_DATA.vel_x+(1-alpha)*LPFout_x, -Vel_LIMIT, Vel_LIMIT);
-							rt_tar.st_data.vel_y = LIMIT(alpha*UWB_DATA.vel_y+(1-alpha)*LPFout_y, -Vel_LIMIT, Vel_LIMIT);
+							// rt_tar.st_data.vel_x = LIMIT(alpha*UWB_DATA.vel_x+(1-alpha)*LPFout_x, -Vel_LIMIT, Vel_LIMIT);
+							// rt_tar.st_data.vel_y = LIMIT(alpha*UWB_DATA.vel_y+(1-alpha)*LPFout_y, -Vel_LIMIT, Vel_LIMIT);
 
-							if(ABS(real_X-expect_point_xy[2][0])<10&&ABS(real_Y-expect_point_xy[2][1])<10)
+							if(ABS(real_X-expect_point_xy[2][0])<5&&ABS(real_Y-expect_point_xy[2][1])<5)
 							{
 							// wait 1s
 								if(time_dly_cnt_ms<2000)
@@ -236,19 +244,21 @@ void UserTask_OneKeyCmd(void)
 						break;
 						case 7:
 						{
-							// vel_z = 0
-							rt_tar.st_data.vel_z = 0;
+							// Altitude control
+							rt_tar.st_data.vel_z = height_control(ano_of.of_alt_cm,Height_80cm);
 							// Position difference differential speed output
-							real_X = UWB_DATA.pos_x - start_point_xyz[0];
-							real_Y = UWB_DATA.pos_y - start_point_xyz[1];
+							real_X = mid360_DATA.pos_x - start_point_xyz[0];
+							real_Y = mid360_DATA.pos_y - start_point_xyz[1];
+							rt_tar.st_data.vel_x = LIMIT((expect_point_xy[3][0]-real_X)*0.5, -Vel_LIMIT, Vel_LIMIT);
+              rt_tar.st_data.vel_y = LIMIT((expect_point_xy[3][1]-real_Y)*0.5, -Vel_LIMIT, Vel_LIMIT);
 							
-							S_LPF_1(0.5, (expect_point_xy[3][0] - real_X)*0.5, LPFout_x);
-							S_LPF_1(0.5, (expect_point_xy[3][1] - real_Y)*0.5, LPFout_y);		
+							// S_LPF_1(0.5, (expect_point_xy[3][0] - real_X)*0.5, LPFout_x);
+							// S_LPF_1(0.5, (expect_point_xy[3][1] - real_Y)*0.5, LPFout_y);		
 							
-							rt_tar.st_data.vel_x = LIMIT(alpha*UWB_DATA.vel_x+(1-alpha)*LPFout_x, -Vel_LIMIT, Vel_LIMIT);
-							rt_tar.st_data.vel_y = LIMIT(alpha*UWB_DATA.vel_y+(1-alpha)*LPFout_y, -Vel_LIMIT, Vel_LIMIT);
+							// rt_tar.st_data.vel_x = LIMIT(alpha*UWB_DATA.vel_x+(1-alpha)*LPFout_x, -Vel_LIMIT, Vel_LIMIT);
+							// rt_tar.st_data.vel_y = LIMIT(alpha*UWB_DATA.vel_y+(1-alpha)*LPFout_y, -Vel_LIMIT, Vel_LIMIT);
 
-							if(ABS(real_X-expect_point_xy[3][0])<10&&ABS(real_Y-expect_point_xy[3][1])<10)
+							if(ABS(real_X-expect_point_xy[3][0])<5&&ABS(real_Y-expect_point_xy[3][1])<5)
 							{
 							// wait 1s
 								if(time_dly_cnt_ms<2000)
@@ -265,19 +275,21 @@ void UserTask_OneKeyCmd(void)
 						break;
 						case 8:
 						{
-							// vel_z = 0
-							rt_tar.st_data.vel_z = 0;
+							// Altitude control
+							rt_tar.st_data.vel_z = height_control(ano_of.of_alt_cm,Height_80cm);
 							// Position difference differential speed output
-							real_X = UWB_DATA.pos_x - start_point_xyz[0];
-							real_Y = UWB_DATA.pos_y - start_point_xyz[1];
+							real_X = mid360_DATA.pos_x - start_point_xyz[0];
+							real_Y = mid360_DATA.pos_y - start_point_xyz[1];
+							rt_tar.st_data.vel_x = LIMIT((expect_point_xy[4][0]-real_X)*0.5, -Vel_LIMIT, Vel_LIMIT);
+              rt_tar.st_data.vel_y = LIMIT((expect_point_xy[4][1]-real_Y)*0.5, -Vel_LIMIT, Vel_LIMIT);
 							
-							S_LPF_1(0.5, (expect_point_xy[4][0] - real_X)*0.5, LPFout_x);
-							S_LPF_1(0.5, (expect_point_xy[4][1] - real_Y)*0.5, LPFout_y);		
+							// S_LPF_1(0.5, (expect_point_xy[4][0] - real_X)*0.5, LPFout_x);
+							// S_LPF_1(0.5, (expect_point_xy[4][1] - real_Y)*0.5, LPFout_y);		
 							
-							rt_tar.st_data.vel_x = LIMIT(alpha*UWB_DATA.vel_x+(1-alpha)*LPFout_x, -Vel_LIMIT, Vel_LIMIT);
-							rt_tar.st_data.vel_y = LIMIT(alpha*UWB_DATA.vel_y+(1-alpha)*LPFout_y, -Vel_LIMIT, Vel_LIMIT);
+							// rt_tar.st_data.vel_x = LIMIT(alpha*UWB_DATA.vel_x+(1-alpha)*LPFout_x, -Vel_LIMIT, Vel_LIMIT);
+							// rt_tar.st_data.vel_y = LIMIT(alpha*UWB_DATA.vel_y+(1-alpha)*LPFout_y, -Vel_LIMIT, Vel_LIMIT);
 
-							if(ABS(real_X-expect_point_xy[4][0])<10&&ABS(real_Y-expect_point_xy[4][1])<10)
+							if(ABS(real_X-expect_point_xy[4][0])<5&&ABS(real_Y-expect_point_xy[4][1])<5)
 							{
 							// wait 1s
 								if(time_dly_cnt_ms<2000)

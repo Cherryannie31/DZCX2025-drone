@@ -3,6 +3,7 @@
 
 #include "SysConfig.h"
 #include "user_data.h"
+#include "mid360.h"
 
 typedef struct{
 	s32 view_vel_x;

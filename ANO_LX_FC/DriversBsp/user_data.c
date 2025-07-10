@@ -276,4 +276,38 @@ void openMV_ReceiveOneByte(uint8_t data)
 	}
 }
 
+/**************************************************************************
+函数功能：高度环+自动降落
+入口参数：feedback_z_com：反馈高度 exp_z_cm：期望高度
+功能说明: 输出的数据让全局变量承受：User_AltCtrlOutZcm
+返回  值：无
+作    者：TQ
+**************************************************************************/
+s16 height_control(s16 feedback_z_com,s16 exp_z_cm)
+{
+     static float err_old_z_cm=0;
+     static float err_new_z_cm=0;
+     static float err_add_z_cm=0;
+     static s16 sped_out_z_cm=0;
+
+	  static s16 LandTime =0;
+     if(feedback_z_com<=300)
+     {
+        err_new_z_cm=exp_z_cm-feedback_z_com;
+        err_add_z_cm+=err_new_z_cm;
+        sped_out_z_cm=(s16)(loc_ctrl_att_p*err_new_z_cm\
+         +LIMIT(loc_ctrl_att_i*err_add_z_cm,-10,10)\
+        +loc_ctrl_att_d*(err_new_z_cm-err_old_z_cm));
+
+        err_old_z_cm=err_new_z_cm;
+         /*限速*/
+        sped_out_z_cm=LIMIT(sped_out_z_cm,-15,15); 
+     }
+    // if(AttCtrlEnable==0)
+    // {
+    //    sped_out_z_cm=0;
+		// }
+	  // User_AltCtrlOutZcm=sped_out_z_cm;//高度环控制输出
+	  return sped_out_z_cm;//高度环控制输出
+}
 

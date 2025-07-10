@@ -31,3 +31,5 @@
 .\build\ano_lx.o: ..\DriversBsp\Drv_UbloxGPS.h
 .\build\ano_lx.o: ..\FcSrc\LX_FC_Fun.h
 .\build\ano_lx.o: ..\DriversMcu\TM4C123\Drivers\Drv_Uart.h
+.\build\ano_lx.o: ..\DriversBsp\user_send.h
+.\build\ano_lx.o: ..\FcSrc\mid360.h

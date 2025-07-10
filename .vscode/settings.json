@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "user_send.h": "c",
+    "ano_lx.h": "c",
+    "mid360.h": "c",
+    "lx_fc_state.h": "c"
+  }
+}

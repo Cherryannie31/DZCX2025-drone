@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>TARGET_IS_TM4C123_RB1 PART_TM4C123GH6PM</Define>
               <Undefine></Undefine>
-              <IncludePath>..\DriversBsp;..\DriversBsp\MyMath;..\DriversMcu\TM4C123\Drivers;..\DriversMcu\TM4C123\Libraries\inc;..\DriversMcu\TM4C123\Libraries\inc\driver_hw;..\DriversMcu\TM4C123\Libraries\inc\driver_inc;..\DriversMcu\TM4C123\Libraries\inc\driver_usb;..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device;..\FcSrc;..\FcSrc\FcGeneral;..\FcSrc\FcSpecific;..\DriversMcu\TM4C123</IncludePath>
+              <IncludePath>..\DriversBsp;..\DriversBsp\MyMath;..\DriversMcu\TM4C123\Drivers;..\DriversMcu\TM4C123\Libraries\inc;..\DriversMcu\TM4C123\Libraries\inc\driver_hw;..\DriversMcu\TM4C123\Libraries\inc\driver_inc;..\DriversMcu\TM4C123\Libraries\inc\driver_usb;..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device;..\FcSrc;..\FcSrc\FcGeneral;..\FcSrc\FcSpecific;..\DriversMcu\TM4C123;..\FcSrc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -464,6 +464,16 @@
               <FileType>5</FileType>
               <FilePath>..\FcSrc\LX_FC_State.h</FilePath>
             </File>
+            <File>
+              <FileName>mid360.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FcSrc\mid360.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid360.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\FcSrc\mid360.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -490,14 +500,14 @@
               <FilePath>..\DriversBsp\Ano_Math.h</FilePath>
             </File>
             <File>
-              <FileName>Drv_AnoOf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\DriversBsp\Drv_AnoOf.c</FilePath>
-            </File>
-            <File>
               <FileName>Drv_AnoOf.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\DriversBsp\Drv_AnoOf.h</FilePath>
+            </File>
+            <File>
+              <FileName>Drv_AnoOf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DriversBsp\Drv_AnoOf.c</FilePath>
             </File>
             <File>
               <FileName>Drv_UbloxGPS.c</FileName>
@@ -518,6 +528,16 @@
               <FileName>user_data.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\DriversBsp\user_data.h</FilePath>
+            </File>
+            <File>
+              <FileName>user_send.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DriversBsp\user_send.c</FilePath>
+            </File>
+            <File>
+              <FileName>user_send.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\DriversBsp\user_send.h</FilePath>
             </File>
           </Files>
         </Group>

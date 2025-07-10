@@ -7,6 +7,7 @@
 #include "Drv_UbloxGPS.h"
 #include "Drv_AnoOf.h"
 #include "user_data.h"
+#include "mid360.h"
 //TM4C的串口0对应底板串口1
 //TM4C的串口2对应底板串口5
 //TM4C的串口4对应底板串口2
@@ -17,7 +18,7 @@
 //串口接收发送快速定义，直接修改此处的函数名称宏，修改成自己的串口解析和发送函数名称即可，注意函数参数格式需统一
 void NoUse(u8 data){}
 #define U1GetOneByte	UBLOX_M8_GPS_Data_Receive
-#define U2GetOneByte	NoUse
+#define U2GetOneByte	mid360_GetOneByte
 #define U3GetOneByte	UWB_ReceiveOneByte
 #define U4GetOneByte	AnoOF_GetOneByte
 #define U5GetOneByte	ANO_DT_LX_Data_Receive_Prepare

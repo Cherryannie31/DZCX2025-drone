@@ -7,6 +7,11 @@
 #include "myFilter.h"
 #include "math.h"
 
+//高度环参数
+#define loc_ctrl_att_p 0.30f
+#define loc_ctrl_att_i 0.0f
+#define loc_ctrl_att_d 0.05f
+
 /******  analyzed data  ******/
 typedef struct
 {
@@ -70,6 +75,7 @@ void UWB_DataAnl(uint8_t *data);
 void UWB_ReceiveOneByte(uint8_t data);
 void send_uwb_data (uint8_t *data);
 void send_Data(void);
+s16 height_control(s16 feedback_z_com,s16 exp_z_cm);
 
 /*******************************  f407
 extern uwb_anl_data_1 UWB_DATA;

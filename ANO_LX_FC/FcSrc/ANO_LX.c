@@ -11,6 +11,7 @@
 #include "Drv_UbloxGPS.h"
 #include "LX_FC_Fun.h"
 #include "Drv_Uart.h"
+#include "user_send.h"
 
 /*==========================================================================
  * 描述    ：凌霄飞控输入、输出主程序
@@ -287,6 +288,7 @@ void ANO_LX_Task()
 			Bat_Voltage_Data_Handle();
 		}
 	}
+	Send_To_Board();
 	//解析串口接收到的数据
 	DrvUartDataCheck();
 	//GPS数据处理

@@ -31,3 +31,4 @@
 .\build\drv_uart.o: ..\DriversBsp\Ano_Math.h
 .\build\drv_uart.o: ..\DriversBsp\myFilter.h
 .\build\drv_uart.o: E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\Bin\..\include\math.h
+.\build\drv_uart.o: ..\FcSrc\mid360.h
