@@ -12,11 +12,8 @@
 
 // status code define
 typedef enum {
-    MID360_STATUS_INIT_WAIT = 0,   // µÈ´ýÆô¶¯Íê³É
-    MID360_STATUS_OK,              // Æô¶¯³É¹¦ÇÒÊý¾ÝÕý³£
-    MID360_STATUS_BOOT_FAIL,       // Æô¶¯³¬Ê±Ê§°Ü
-    MID360_STATUS_STARTUP_ERR,     // Æô¶¯ÆÚÊý¾ÝÒì³£
-    MID360_STATUS_RUNTIME_ERR,     // Õý³£ÔËÐÐÆÚ³ÖÐøÊý¾ÝÒì³£
+    MID360_STATUS_OK = 0,          // Êý¾ÝÕý³£
+    MID360_STATUS_RUNTIME_ERR,     // Êý¾ÝÒç³ö
     MID360_STATUS_LOST_DATA,       // ÔËÐÐÆÚµôÏß       
 } Mid360_Status_e;
 
@@ -24,7 +21,7 @@ static uint32_t mid360_boot_timer = 0;                              // Æô¶¯³¬Ê±¼
 static uint32_t mid360_lost_timer = 0;                              // µôÏß¼ÆÊ±Æ÷
 static uint8_t mid360_overflow_cnt = 0;                             // ¶ª°ü¼ÆÊýÆ÷
 static bool mid360_first_pose_received = false;                     // Ê×´Î×ËÌ¬Êý¾Ý½ÓÊÕ±êÖ¾
-static Mid360_Status_e mid360_status = MID360_STATUS_INIT_WAIT;     // ×´Ì¬
+static Mid360_Status_e mid360_status = MID360_STATUS_LOST_DATA;     // ×´Ì¬
 
 typedef struct
 {
@@ -48,14 +45,16 @@ typedef struct
    int16_t pos_y_f;
    int16_t pos_z_f;
 
-   // u8 offline;
+   u8 offline;
    Mid360_Status_e status;
+	 
+	 u8 _update_cnt;       // Êý¾Ý¸üÐÂ¼ÆÊý
 }Mid360;
 
 void mid360_GetOneByte(uint8_t data);           //Êý¾Ý»ñÈ¡
 static void Mid360_DataAnl(uint8_t *data_temp,uint8_t len);
 void Mid360send_Data(void);
 void Mid360_UpdateCheck(uint8_t dT_ms);
-void Mid360_PoseCheck(void);
+void Mid360_Check_Reset(void);
 extern Mid360 mid360_DATA;
 #endif

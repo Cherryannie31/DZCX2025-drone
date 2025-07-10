@@ -539,6 +539,16 @@
               <FileType>5</FileType>
               <FilePath>..\DriversBsp\user_send.h</FilePath>
             </File>
+            <File>
+              <FileName>user_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DriversBsp\user_control.c</FilePath>
+            </File>
+            <File>
+              <FileName>user_control.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\DriversBsp\user_control.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

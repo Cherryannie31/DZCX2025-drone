@@ -8,6 +8,8 @@
 #include "Ano_Scheduler.h"
 #include "User_Task.h"
 #include "mid360.h"
+#include "user_control.h"
+#include "user_send.h"
 //////////////////////////////////////////////////////////////////////
 //用户程序调度器
 //////////////////////////////////////////////////////////////////////
@@ -29,8 +31,29 @@ static void Loop_500Hz(void) //2ms执行一次
 static void Loop_200Hz(void) //5ms执行一次
 {
 	//////////////////////////////////////////////////////////////////////
-
+	//	位置环控制模式
+	if	(LX_FC.CtrlMode==0)
+	{
+		//	PARAM: feedback_value - exp_value
+		height_control(ano_of.of_alt_cm,Exp_Alt_Zcm);
+		Loc_Ctrl(mid360_DATA.pos_x,mid360_DATA.pos_y,Exp_Loc_Xcm,Exp_Loc_Ycm);
+		Ang_Ctrl(mid360_DATA.yaw,Exp_Ang_Deg);
+	}
+	
+	OutXcm = User_LocCtrlOutXcm;
+	OutYcm = User_LocCtrlOutYcm;
+	OutZcm = User_AltCtrlOutZcm;
+	OutDeg = User_AngCtrlOutDeg;
+	
+	//	限幅
+	OutXcm = LIMIT(OutXcm,-30,30);
+	OutYcm = LIMIT(OutYcm,-30,30);
+	OutZcm = LIMIT(OutZcm,-15,15);
+	OutDeg = LIMIT(OutDeg,-30,30);
 	//////////////////////////////////////////////////////////////////////
+	
+	//	输出
+	FC_Ctrl(OutXcm,OutYcm,OutZcm,OutDeg);
 }
 
 static void Loop_100Hz(void) //10ms执行一次
@@ -81,7 +104,9 @@ static void Loop_100Hz(void) //10ms执行一次
 static void Loop_50Hz(void) //20ms执行一次
 {
 	//////////////////////////////////////////////////////////////////////
-	UserTask_OneKeyCmd();
+	User_Height();  // 起飞+自主降落测试
+//	UserTask_OneKeyCmd();
+//	UserTask_NewControl();
 	Mid360_UpdateCheck(20);
 	//////////////////////////////////////////////////////////////////////
 }
@@ -90,6 +115,7 @@ static void Loop_20Hz(void) //50ms执行一次
 {
 	//////////////////////////////////////////////////////////////////////
 	Mid360send_Data();
+	Send_To_Analyze();
 	//////////////////////////////////////////////////////////////////////
 }
 

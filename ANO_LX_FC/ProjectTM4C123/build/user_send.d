@@ -25,3 +25,11 @@
 .\build\user_send.o: ..\FcSrc\mid360.h
 .\build\user_send.o: ..\DriversMcu\TM4C123\Drivers\Drv_Uart.h
 .\build\user_send.o: ..\DriversBsp\Drv_AnoOf.h
+.\build\user_send.o: ..\DriversBsp\user_control.h
+.\build\user_send.o: E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\Bin\..\include\math.h
+.\build\user_send.o: ..\FcSrc\LX_FC_Fun.h
+.\build\user_send.o: ..\DriversBsp\user_send.h
+.\build\user_send.o: ..\FcSrc\User_Task.h
+.\build\user_send.o: ..\DriversBsp\user_data.h
+.\build\user_send.o: ..\DriversBsp\myFilter.h
+.\build\user_send.o: ..\DriversBsp\user_control.h

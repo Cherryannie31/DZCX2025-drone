@@ -33,3 +33,10 @@
 .\build\ano_lx.o: ..\DriversMcu\TM4C123\Drivers\Drv_Uart.h
 .\build\ano_lx.o: ..\DriversBsp\user_send.h
 .\build\ano_lx.o: ..\FcSrc\mid360.h
+.\build\ano_lx.o: ..\DriversBsp\user_control.h
+.\build\ano_lx.o: E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\Bin\..\include\math.h
+.\build\ano_lx.o: ..\DriversBsp\user_send.h
+.\build\ano_lx.o: ..\FcSrc\User_Task.h
+.\build\ano_lx.o: ..\DriversBsp\user_data.h
+.\build\ano_lx.o: ..\DriversBsp\myFilter.h
+.\build\ano_lx.o: ..\DriversBsp\user_control.h

@@ -22,7 +22,7 @@ I (..\DriversBsp\Drv_BSP.h)(0x5F4B4EE7)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Sys.h)(0x5F3E7720)
 I (..\FcSrc\ANO_LX.h)(0x60F0369C)
 I (..\FcSrc\Ano_Scheduler.h)(0x5F4B3381)
-F (..\FcSrc\Ano_Scheduler.c)(0x684F2B7E)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\ano_scheduler.o --omf_browse .\build\ano_scheduler.crf --depend .\build\ano_scheduler.d)
+F (..\FcSrc\Ano_Scheduler.c)(0x68701CE5)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\ano_scheduler.o --omf_browse .\build\ano_scheduler.crf --depend .\build\ano_scheduler.d)
 I (..\FcSrc\Ano_Scheduler.h)(0x5F4B3381)
 I (..\FcSrc\SysConfig.h)(0x5F4B4DDD)
 I (..\DriversMcu\TM4C123\McuConfig.h)(0x5F4B1323)
@@ -43,17 +43,21 @@ I (..\DriversMcu\TM4C123\Libraries\inc\driver_inc\pin_map.h)(0x578B42CD)
 I (..\DriversBsp\Drv_BSP.h)(0x5F4B4EE7)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Sys.h)(0x5F3E7720)
 I (..\FcSrc\ANO_LX.h)(0x60F0369C)
-I (..\FcSrc\User_Task.h)(0x684A7A96)
-I (..\DriversBsp\user_data.h)(0x684AA18E)
+I (..\FcSrc\User_Task.h)(0x686F6833)
+I (..\DriversBsp\user_data.h)(0x686062D5)
 I (..\DriversBsp\Ano_Math.h)(0x67CD0747)
 I (..\DriversBsp\myFilter.h)(0x67C714FF)
 I (E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\include\math.h)(0x5E8E3CC2)
-I (..\FcSrc\mid360.h)(0x684F2C9D)
+I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
+I (..\FcSrc\mid360.h)(0x685EE265)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Uart.h)(0x5F7687B1)
 I (..\DriversBsp\Drv_AnoOf.h)(0x5F4B3381)
+I (..\DriversBsp\user_send.h)(0x6867DD6A)
+I (..\FcSrc\LX_FC_State.h)(0x5F4B3381)
+I (..\DriversBsp\user_control.h)(0x687018F2)
 F (..\FcSrc\Ano_Scheduler.h)(0x5F4B3381)()
-F (..\FcSrc\User_Task.c)(0x684BA57B)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\user_task.o --omf_browse .\build\user_task.crf --depend .\build\user_task.d)
-I (..\FcSrc\User_Task.h)(0x684A7A96)
+F (..\FcSrc\User_Task.c)(0x68701E5B)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\user_task.o --omf_browse .\build\user_task.crf --depend .\build\user_task.d)
+I (..\FcSrc\User_Task.h)(0x686F6833)
 I (..\FcSrc\SysConfig.h)(0x5F4B4DDD)
 I (..\DriversMcu\TM4C123\McuConfig.h)(0x5F4B1323)
 I (..\DriversMcu\TM4C123\Libraries\inc\TM4C123G.h)(0x550F8DCC)
@@ -73,17 +77,20 @@ I (..\DriversMcu\TM4C123\Libraries\inc\driver_inc\pin_map.h)(0x578B42CD)
 I (..\DriversBsp\Drv_BSP.h)(0x5F4B4EE7)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Sys.h)(0x5F3E7720)
 I (..\FcSrc\ANO_LX.h)(0x60F0369C)
-I (..\DriversBsp\user_data.h)(0x684AA18E)
+I (..\DriversBsp\user_data.h)(0x686062D5)
 I (..\DriversBsp\Ano_Math.h)(0x67CD0747)
 I (..\DriversBsp\myFilter.h)(0x67C714FF)
 I (E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\include\math.h)(0x5E8E3CC2)
-I (..\FcSrc\mid360.h)(0x684F2C9D)
+I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
+I (..\FcSrc\mid360.h)(0x685EE265)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Uart.h)(0x5F7687B1)
 I (..\DriversBsp\Drv_AnoOf.h)(0x5F4B3381)
+I (..\DriversBsp\user_send.h)(0x6867DD6A)
+I (..\FcSrc\LX_FC_State.h)(0x5F4B3381)
+I (..\DriversBsp\user_control.h)(0x687018F2)
 I (..\DriversMcu\TM4C123\Drivers\Drv_RcIn.h)(0x5F4B5061)
-I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
-F (..\FcSrc\User_Task.h)(0x684A7A96)()
-F (..\FcSrc\ANO_DT_LX.c)(0x682E5D75)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\ano_dt_lx.o --omf_browse .\build\ano_dt_lx.crf --depend .\build\ano_dt_lx.d)
+F (..\FcSrc\User_Task.h)(0x686F6833)()
+F (..\FcSrc\ANO_DT_LX.c)(0x686062D5)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\ano_dt_lx.o --omf_browse .\build\ano_dt_lx.crf --depend .\build\ano_dt_lx.d)
 I (..\FcSrc\ANO_DT_LX.h)(0x5F4B3380)
 I (..\FcSrc\SysConfig.h)(0x5F4B4DDD)
 I (..\DriversMcu\TM4C123\McuConfig.h)(0x5F4B1323)
@@ -109,13 +116,14 @@ I (..\FcSrc\LX_FC_EXT_Sensor.h)(0x5F4B3380)
 I (..\DriversMcu\TM4C123\Drivers\Drv_led.h)(0x5F4B4021)
 I (..\FcSrc\LX_FC_State.h)(0x5F4B3381)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Uart.h)(0x5F7687B1)
-I (..\DriversBsp\user_data.h)(0x684AA18E)
+I (..\DriversBsp\user_data.h)(0x686062D5)
 I (..\DriversBsp\Ano_Math.h)(0x67CD0747)
 I (..\DriversBsp\myFilter.h)(0x67C714FF)
 I (E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\include\math.h)(0x5E8E3CC2)
+I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
 I (..\DriversBsp\Drv_AnoOf.h)(0x5F4B3381)
 F (..\FcSrc\ANO_DT_LX.h)(0x5F4B3380)()
-F (..\FcSrc\ANO_LX.c)(0x684F0A59)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\ano_lx.o --omf_browse .\build\ano_lx.crf --depend .\build\ano_lx.d)
+F (..\FcSrc\ANO_LX.c)(0x68668C0C)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\ano_lx.o --omf_browse .\build\ano_lx.crf --depend .\build\ano_lx.d)
 I (..\FcSrc\ANO_LX.h)(0x60F0369C)
 I (..\DriversMcu\TM4C123\McuConfig.h)(0x5F4B1323)
 I (..\DriversMcu\TM4C123\Libraries\inc\TM4C123G.h)(0x550F8DCC)
@@ -147,10 +155,15 @@ I (..\DriversMcu\TM4C123\Drivers\Drv_led.h)(0x5F4B4021)
 I (..\DriversBsp\Drv_UbloxGPS.h)(0x5F4B39B1)
 I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Uart.h)(0x5F7687B1)
-I (..\DriversBsp\user_send.h)(0x684F2FA7)
-I (..\FcSrc\mid360.h)(0x684F2C9D)
+I (..\DriversBsp\user_send.h)(0x6867DD6A)
+I (..\FcSrc\mid360.h)(0x685EE265)
+I (..\DriversBsp\user_control.h)(0x687018F2)
+I (E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\include\math.h)(0x5E8E3CC2)
+I (..\FcSrc\User_Task.h)(0x686F6833)
+I (..\DriversBsp\user_data.h)(0x686062D5)
+I (..\DriversBsp\myFilter.h)(0x67C714FF)
 F (..\FcSrc\ANO_LX.h)(0x60F0369C)()
-F (..\FcSrc\LX_FC_EXT_Sensor.c)(0x5F4B3381)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\lx_fc_ext_sensor.o --omf_browse .\build\lx_fc_ext_sensor.crf --depend .\build\lx_fc_ext_sensor.d)
+F (..\FcSrc\LX_FC_EXT_Sensor.c)(0x685FCA9A)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\lx_fc_ext_sensor.o --omf_browse .\build\lx_fc_ext_sensor.crf --depend .\build\lx_fc_ext_sensor.d)
 I (..\FcSrc\LX_FC_EXT_Sensor.h)(0x5F4B3380)
 I (..\FcSrc\SysConfig.h)(0x5F4B4DDD)
 I (..\DriversMcu\TM4C123\McuConfig.h)(0x5F4B1323)
@@ -173,6 +186,9 @@ I (..\DriversMcu\TM4C123\Drivers\Drv_Sys.h)(0x5F3E7720)
 I (..\FcSrc\ANO_LX.h)(0x60F0369C)
 I (..\DriversBsp\Drv_AnoOf.h)(0x5F4B3381)
 I (..\FcSrc\ANO_DT_LX.h)(0x5F4B3380)
+I (..\FcSrc\mid360.h)(0x685EE265)
+I (..\DriversMcu\TM4C123\Drivers\Drv_Uart.h)(0x5F7687B1)
+I (..\DriversBsp\Ano_Math.h)(0x67CD0747)
 F (..\FcSrc\LX_FC_EXT_Sensor.h)(0x5F4B3380)()
 F (..\FcSrc\LX_FC_Fun.c)(0x5F355018)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\lx_fc_fun.o --omf_browse .\build\lx_fc_fun.crf --depend .\build\lx_fc_fun.d)
 I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
@@ -223,8 +239,8 @@ I (..\DriversMcu\TM4C123\Drivers\Drv_RcIn.h)(0x5F4B5061)
 I (..\FcSrc\ANO_DT_LX.h)(0x5F4B3380)
 I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
 F (..\FcSrc\LX_FC_State.h)(0x5F4B3381)()
-F (..\FcSrc\mid360.c)(0x684F2CEE)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\mid360.o --omf_browse .\build\mid360.crf --depend .\build\mid360.d)
-I (..\FcSrc\mid360.h)(0x684F2C9D)
+F (..\FcSrc\mid360.c)(0x685EE265)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\mid360.o --omf_browse .\build\mid360.crf --depend .\build\mid360.d)
+I (..\FcSrc\mid360.h)(0x685EE265)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Uart.h)(0x5F7687B1)
 I (..\FcSrc\sysconfig.h)(0x5F4B4DDD)
 I (..\DriversMcu\TM4C123\McuConfig.h)(0x5F4B1323)
@@ -247,7 +263,7 @@ I (..\DriversMcu\TM4C123\Drivers\Drv_Sys.h)(0x5F3E7720)
 I (..\FcSrc\ANO_LX.h)(0x60F0369C)
 I (..\DriversBsp\Drv_AnoOf.h)(0x5F4B3381)
 I (..\DriversBsp\Ano_Math.h)(0x67CD0747)
-F (..\FcSrc\mid360.h)(0x684F2C9D)()
+F (..\FcSrc\mid360.h)(0x685EE265)()
 F (..\DriversBsp\Drv_BSP.c)(0x681E1C05)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\drv_bsp.o --omf_browse .\build\drv_bsp.crf --depend .\build\drv_bsp.d)
 I (..\DriversBsp\Drv_BSP.h)(0x5F4B4EE7)
 I (..\FcSrc\SysConfig.h)(0x5F4B4DDD)
@@ -347,8 +363,8 @@ I (..\DriversBsp\ANO_Math.h)(0x67CD0747)
 I (..\FcSrc\ANO_DT_LX.h)(0x5F4B3380)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Uart.h)(0x5F7687B1)
 F (..\DriversBsp\Drv_UbloxGPS.h)(0x5F4B39B1)()
-F (..\DriversBsp\user_data.c)(0x684A9B12)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\user_data.o --omf_browse .\build\user_data.crf --depend .\build\user_data.d)
-I (..\DriversBsp\user_data.h)(0x684AA18E)
+F (..\DriversBsp\user_data.c)(0x686062D5)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\user_data.o --omf_browse .\build\user_data.crf --depend .\build\user_data.d)
+I (..\DriversBsp\user_data.h)(0x686062D5)
 I (..\FcSrc\SysConfig.h)(0x5F4B4DDD)
 I (..\DriversMcu\TM4C123\McuConfig.h)(0x5F4B1323)
 I (..\DriversMcu\TM4C123\Libraries\inc\TM4C123G.h)(0x550F8DCC)
@@ -371,9 +387,10 @@ I (..\FcSrc\ANO_LX.h)(0x60F0369C)
 I (..\DriversBsp\Ano_Math.h)(0x67CD0747)
 I (..\DriversBsp\myFilter.h)(0x67C714FF)
 I (E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\include\math.h)(0x5E8E3CC2)
-F (..\DriversBsp\user_data.h)(0x684AA18E)()
-F (..\DriversBsp\user_send.c)(0x684F365F)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\user_send.o --omf_browse .\build\user_send.crf --depend .\build\user_send.d)
-I (..\DriversBsp\user_send.h)(0x684F2FA7)
+I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
+F (..\DriversBsp\user_data.h)(0x686062D5)()
+F (..\DriversBsp\user_send.c)(0x686F66BA)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\user_send.o --omf_browse .\build\user_send.crf --depend .\build\user_send.d)
+I (..\DriversBsp\user_send.h)(0x6867DD6A)
 I (..\FcSrc\SysConfig.h)(0x5F4B4DDD)
 I (..\DriversMcu\TM4C123\McuConfig.h)(0x5F4B1323)
 I (..\DriversMcu\TM4C123\Libraries\inc\TM4C123G.h)(0x550F8DCC)
@@ -395,10 +412,49 @@ I (..\DriversMcu\TM4C123\Drivers\Drv_Sys.h)(0x5F3E7720)
 I (..\FcSrc\ANO_LX.h)(0x60F0369C)
 I (..\DriversBsp\Ano_Math.h)(0x67CD0747)
 I (..\FcSrc\LX_FC_State.h)(0x5F4B3381)
-I (..\FcSrc\mid360.h)(0x684F2C9D)
+I (..\FcSrc\mid360.h)(0x685EE265)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Uart.h)(0x5F7687B1)
 I (..\DriversBsp\Drv_AnoOf.h)(0x5F4B3381)
-F (..\DriversBsp\user_send.h)(0x684F2FA7)()
+I (..\DriversBsp\user_control.h)(0x687018F2)
+I (E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\include\math.h)(0x5E8E3CC2)
+I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
+I (..\FcSrc\User_Task.h)(0x686F6833)
+I (..\DriversBsp\user_data.h)(0x686062D5)
+I (..\DriversBsp\myFilter.h)(0x67C714FF)
+F (..\DriversBsp\user_send.h)(0x6867DD6A)()
+F (..\DriversBsp\user_control.c)(0x686F690A)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\user_control.o --omf_browse .\build\user_control.crf --depend .\build\user_control.d)
+I (..\DriversBsp\user_control.h)(0x687018F2)
+I (..\FcSrc\SysConfig.h)(0x5F4B4DDD)
+I (..\DriversMcu\TM4C123\McuConfig.h)(0x5F4B1323)
+I (..\DriversMcu\TM4C123\Libraries\inc\TM4C123G.h)(0x550F8DCC)
+I (..\DriversMcu\TM4C123\Libraries\inc\core_cm4.h)(0x5C8F4DD4)
+I (E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\include\stdint.h)(0x5E8E3CC2)
+I (..\DriversMcu\TM4C123\Libraries\inc\cmsis_version.h)(0x5B971444)
+I (..\DriversMcu\TM4C123\Libraries\inc\cmsis_compiler.h)(0x5C8F4DD4)
+I (..\DriversMcu\TM4C123\Libraries\inc\cmsis_armcc.h)(0x5C8F4DD4)
+I (..\DriversMcu\TM4C123\Libraries\inc\mpu_armv7.h)(0x5C8F4DD4)
+I (..\DriversMcu\TM4C123\Libraries\inc\system_TM4C123.h)(0x5C557B30)
+I (..\DriversMcu\TM4C123\Libraries\inc\rom.h)(0x5CDA5D37)
+I (..\DriversMcu\TM4C123\Libraries\inc\rom_map.h)(0x56F61780)
+I (..\DriversMcu\TM4C123\Libraries\inc\driver_inc\sysctl.h)(0x5C62B61E)
+I (E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\include\stdbool.h)(0x5E8E3CC2)
+I (..\DriversMcu\TM4C123\Libraries\inc\driver_inc\gpio.h)(0x5C666875)
+I (..\DriversMcu\TM4C123\Libraries\inc\driver_inc\pin_map.h)(0x578B42CD)
+I (..\DriversBsp\Drv_BSP.h)(0x5F4B4EE7)
+I (..\DriversMcu\TM4C123\Drivers\Drv_Sys.h)(0x5F3E7720)
+I (..\FcSrc\ANO_LX.h)(0x60F0369C)
+I (..\DriversBsp\Ano_Math.h)(0x67CD0747)
+I (E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\include\math.h)(0x5E8E3CC2)
+I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
+I (..\DriversBsp\user_send.h)(0x6867DD6A)
+I (..\FcSrc\LX_FC_State.h)(0x5F4B3381)
+I (..\FcSrc\mid360.h)(0x685EE265)
+I (..\DriversMcu\TM4C123\Drivers\Drv_Uart.h)(0x5F7687B1)
+I (..\DriversBsp\Drv_AnoOf.h)(0x5F4B3381)
+I (..\FcSrc\User_Task.h)(0x686F6833)
+I (..\DriversBsp\user_data.h)(0x686062D5)
+I (..\DriversBsp\myFilter.h)(0x67C714FF)
+F (..\DriversBsp\user_control.h)(0x687018F2)()
 F (..\DriversMcu\TM4C123\McuConfig.h)(0x5F4B1323)()
 F (..\DriversMcu\TM4C123\Drivers\Drv_Sys.c)(0x5F3E7EDD)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\drv_sys.o --omf_browse .\build\drv_sys.crf --depend .\build\drv_sys.d)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Sys.h)(0x5F3E7720)
@@ -545,11 +601,12 @@ I (..\DriversMcu\TM4C123\Libraries\inc\driver_hw\hw_types.h)(0x5CD62FE4)
 I (..\FcSrc\Ano_DT_LX.h)(0x5F4B3380)
 I (..\DriversBsp\Drv_UbloxGPS.h)(0x5F4B39B1)
 I (..\DriversBsp\Drv_AnoOf.h)(0x5F4B3381)
-I (..\DriversBsp\user_data.h)(0x684AA18E)
+I (..\DriversBsp\user_data.h)(0x686062D5)
 I (..\DriversBsp\Ano_Math.h)(0x67CD0747)
 I (..\DriversBsp\myFilter.h)(0x67C714FF)
 I (E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\include\math.h)(0x5E8E3CC2)
-I (..\FcSrc\mid360.h)(0x684F2C9D)
+I (..\FcSrc\LX_FC_Fun.h)(0x5F4B3381)
+I (..\FcSrc\mid360.h)(0x685EE265)
 F (..\DriversMcu\TM4C123\Drivers\Drv_Uart.h)(0x5F7687B1)()
 F (..\DriversMcu\TM4C123\Drivers\Drv_Usb.c)(0x5F49FBBF)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\DriversBsp -I ..\DriversBsp\MyMath -I ..\DriversMcu\TM4C123\Drivers -I ..\DriversMcu\TM4C123\Libraries\inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_hw -I ..\DriversMcu\TM4C123\Libraries\inc\driver_inc -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb -I ..\DriversMcu\TM4C123\Libraries\inc\driver_usb\device -I ..\FcSrc -I ..\FcSrc\FcGeneral -I ..\FcSrc\FcSpecific -I ..\DriversMcu\TM4C123 -I ..\FcSrc-IE:\Keil\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="541" -DTM4C123GH6PM -DTARGET_IS_TM4C123_RB1 -DPART_TM4C123GH6PM-o .\build\drv_usb.o --omf_browse .\build\drv_usb.crf --depend .\build\drv_usb.d)
 I (..\DriversMcu\TM4C123\Drivers\Drv_Usb.h)(0x5F49FBBF)

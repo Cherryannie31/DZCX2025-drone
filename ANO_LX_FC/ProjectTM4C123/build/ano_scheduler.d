@@ -25,6 +25,12 @@
 .\build\ano_scheduler.o: ..\DriversBsp\Ano_Math.h
 .\build\ano_scheduler.o: ..\DriversBsp\myFilter.h
 .\build\ano_scheduler.o: E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\Bin\..\include\math.h
+.\build\ano_scheduler.o: ..\FcSrc\LX_FC_Fun.h
 .\build\ano_scheduler.o: ..\FcSrc\mid360.h
 .\build\ano_scheduler.o: ..\DriversMcu\TM4C123\Drivers\Drv_Uart.h
 .\build\ano_scheduler.o: ..\DriversBsp\Drv_AnoOf.h
+.\build\ano_scheduler.o: ..\DriversBsp\user_send.h
+.\build\ano_scheduler.o: ..\FcSrc\LX_FC_State.h
+.\build\ano_scheduler.o: ..\DriversBsp\user_control.h
+.\build\ano_scheduler.o: ..\DriversBsp\user_send.h
+.\build\ano_scheduler.o: ..\FcSrc\User_Task.h

@@ -472,6 +472,10 @@ static void Add_Send_Data(u8 frame_num, u8 *_cnt, u8 send_buffer[])
 		temp_data = ano_of.of2_dy_fix; 
 		send_buffer[(*_cnt)++] = BYTE0(temp_data);
 		send_buffer[(*_cnt)++] = BYTE1(temp_data);
+		
+		temp_data = ano_of.of_alt_cm; 
+		send_buffer[(*_cnt)++] = BYTE0(temp_data);
+		send_buffer[(*_cnt)++] = BYTE1(temp_data);
 	}
 	break;		
 	default:

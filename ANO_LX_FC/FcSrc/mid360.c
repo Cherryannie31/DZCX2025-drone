@@ -1,5 +1,6 @@
 #include "mid360.h"
 static uint8_t data_temp1[100];
+u16 offline_check_time=0;
 Mid360 mid360_DATA;
 /**************************************************************************
 函数功能：mid360数据获取
@@ -47,7 +48,6 @@ void mid360_GetOneByte(uint8_t data)           //数据获取
     if(data==0x00)
     {
       Mid360_DataAnl(data_temp1,_data_cnt+4);
-      Mid360_PoseCheck();
     }
     else
     {
@@ -70,23 +70,50 @@ static void Mid360_DataAnl(uint8_t *data_temp,uint8_t len)
 {
    if(*(data_temp+2)==0xa1)       //位置数据
    {
-     mid360_DATA.pos_x=(int16_t)((*(data_temp+4)<<8)|*(data_temp+5));
-     mid360_DATA.pos_y=(int16_t)((*(data_temp+6)<<8)|*(data_temp+7));
-     mid360_DATA.pos_z=(int16_t)((*(data_temp+8)<<8)|*(data_temp+9));
+      int16_t x = (int16_t)((*(data_temp+4)<<8)|*(data_temp+5));
+      int16_t y = (int16_t)((*(data_temp+6)<<8)|*(data_temp+7));
+      int16_t z = (int16_t)((*(data_temp+8)<<8)|*(data_temp+9));
 
-     mid360_DATA.pos_x_f=(int16_t)(1*(float)mid360_DATA.pos_x);
-     mid360_DATA.pos_y_f=(int16_t)(1*(float)mid360_DATA.pos_y);
-     mid360_DATA.pos_z_f=(int16_t)(1*(float)mid360_DATA.pos_z);
+      if (!mid360_first_pose_received) {
+          mid360_first_pose_received = true;
+      }
 
-     mid360_DATA.roll=(int16_t)((*(data_temp+10)<<8)|*(data_temp+11));
-     mid360_DATA.pit=(int16_t)((*(data_temp+12)<<8)|*(data_temp+13));
-     mid360_DATA.yaw=(int16_t)((*(data_temp+14)<<8)|*(data_temp+15));
+      // 数据溢出判断
+      if (ABS(x) < MID360_OVERFLOW_LIMIT || 
+          ABS(y) < MID360_OVERFLOW_LIMIT || 
+          ABS(z) < MID360_OVERFLOW_LIMIT) 
+      {
+          mid360_DATA.pos_x = x;
+          mid360_DATA.pos_y = y;
+          mid360_DATA.pos_z = z;
 
-     mid360_DATA.v_x=(int16_t)((*(data_temp+16)<<8)|*(data_temp+17));
-     mid360_DATA.v_y=(int16_t)((*(data_temp+18)<<8)|*(data_temp+19));
-     mid360_DATA.v_z=(int16_t)((*(data_temp+20)<<8)|*(data_temp+21));
-    
+          mid360_DATA.pos_x_f=(int16_t)(1*(float)mid360_DATA.pos_x);
+          mid360_DATA.pos_y_f=(int16_t)(1*(float)mid360_DATA.pos_y);
+          mid360_DATA.pos_z_f=(int16_t)(1*(float)mid360_DATA.pos_z);
+
+          mid360_DATA.roll=(int16_t)((*(data_temp+10)<<8)|*(data_temp+11));
+          mid360_DATA.pit=(int16_t)((*(data_temp+12)<<8)|*(data_temp+13));
+          mid360_DATA.yaw=(int16_t)((*(data_temp+14)<<8)|*(data_temp+15));
+
+          mid360_DATA.v_x=(int16_t)((*(data_temp+16)<<8)|*(data_temp+17));
+          mid360_DATA.v_y=(int16_t)((*(data_temp+18)<<8)|*(data_temp+19));
+          mid360_DATA.v_z=(int16_t)((*(data_temp+20)<<8)|*(data_temp+21));
+
+          // 数据正常   0
+					mid360_DATA._update_cnt ++;
+          mid360_status = MID360_STATUS_OK;
+          mid360_overflow_cnt = 0;
+      } else 
+      {
+        // 运行時溢出累计
+        mid360_overflow_cnt++;
+        if (mid360_overflow_cnt >= 2)
+            // 数据溢出   1
+            mid360_status = MID360_STATUS_RUNTIME_ERR;
+						mid360_DATA.offline =  1;
+      }
    }
+   Mid360_Check_Reset();
 }
 
 /**************************************************************************
@@ -146,56 +173,36 @@ void Mid360send_Data()
 // 启动检测 + 溢出计时器更新
 void Mid360_UpdateCheck(uint8_t dT_ms)
 {
-    if (!mid360_first_pose_received) {
-        mid360_boot_timer += dT_ms;
-        if (mid360_boot_timer > 14000) {  
-            // 超过14秒仍未收到有效数据
-            mid360_status = MID360_STATUS_BOOT_FAIL;
-        }
-    }
+    // if (!mid360_first_pose_received) {
+    //     mid360_boot_timer += dT_ms;
+    //     if (mid360_boot_timer > 14000) {  
+    //         // 超过14秒仍未收到有效数据
+    //         mid360_status = MID360_STATUS_BOOT_FAIL;
+    //     }
+    // }
 
     // 掉綫計時
-    if (mid360_lost_timer < MID360_LOST_TIMEOUT_MS)
+    if (offline_check_time < MID360_LOST_TIMEOUT_MS)
     {
-        mid360_lost_timer += dT_ms;
+        offline_check_time += dT_ms;
     } else{
+        mid360_DATA.offline = 1;  // 掉线   2
         mid360_status = MID360_STATUS_LOST_DATA;
     }
     // 同步更新狀態
     mid360_DATA.status = mid360_status;
 }
 
-// 数据有效性检查 
-void Mid360_PoseCheck(void)
+/**********************************************************************************************************
+*函 数 名: Mid360_Check_Reset
+*功能说明: mid360掉线检测复位，证明没有掉线
+*参    数: 无
+*返 回 值: 无
+**********************************************************************************************************/
+void Mid360_Check_Reset(void)
 {
-    mid360_lost_timer = 0;          // 重置掉綫計時
-
-    int16_t x = mid360_DATA.pos_x;
-    int16_t y = mid360_DATA.pos_y;
-    int16_t z = mid360_DATA.pos_z;
-
-    if (!mid360_first_pose_received) {
-        mid360_first_pose_received = true;
-    }
-
-    // 数据溢出判断
-    if (ABS(x) > 2000 || ABS(y) > 2000 || ABS(z) > 2000) {
-        if (mid360_boot_timer <= 14000) {
-            // 启动期异常
-            mid360_status = MID360_STATUS_STARTUP_ERR;
-        } else {
-            // 运行時溢出累计
-            mid360_overflow_cnt++;
-            if (mid360_overflow_cnt >= 2) {
-                mid360_status = MID360_STATUS_RUNTIME_ERR;
-            }
-        }
-    } else {
-        // 数据正常，重置溢出计数
-        mid360_overflow_cnt = 0;
-        mid360_status = MID360_STATUS_OK;
-    }
-    // 狀態更新
-    mid360_DATA.status = mid360_status;
+	offline_check_time = 0;
+	mid360_DATA.offline = 0;
+  mid360_DATA.status = mid360_status;		// 同步更新狀態
 }
 

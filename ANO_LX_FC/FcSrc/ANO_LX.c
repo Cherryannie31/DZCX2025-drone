@@ -12,6 +12,7 @@
 #include "LX_FC_Fun.h"
 #include "Drv_Uart.h"
 #include "user_send.h"
+#include "user_control.h"
 
 /*==========================================================================
  * 描述    ：凌霄飞控输入、输出主程序
@@ -148,10 +149,25 @@ static inline void RC_Data_Task(float dT_s)
 //		}
 		//############(实时控制帧，自主开发闭环控制，在这里赋值即可)##############
 		//实时XYZ-YAW期望速度(实时控制帧)
+		if (LX_FC.sped_state == 1)
+		{
+			rt_tar.st_data.vel_x = OutValue[0];  
+			rt_tar.st_data.vel_y = OutValue[1];  
+			rt_tar.st_data.vel_z = OutValue[2];	 
+			rt_tar.st_data.yaw_dps = OutValue[3];
+		}	
+		else
+		{
+			rt_tar.st_data.yaw_dps = 0;  //航向转动角速度，度每秒，逆时针为正
+			rt_tar.st_data.vel_x = 0;    //头向速度，厘米每秒
+			rt_tar.st_data.vel_y = 0;    //左向速度，厘米每秒
+			rt_tar.st_data.vel_z = 0;	 //天向速度，厘米每秒
+		}
 //		rt_tar.st_data.yaw_dps = 0;  //航向转动角速度，度每秒，逆时针为正
 //		rt_tar.st_data.vel_x = 0;    //头向速度，厘米每秒
 //		rt_tar.st_data.vel_y = 0;    //左向速度，厘米每秒
 //		rt_tar.st_data.vel_z = 0;	 //天向速度，厘米每秒
+			
 		//########################################################################
 		//=====
 		dt.fun[0x41].WTS = 1; //将要发送rt_tar数据。
@@ -264,7 +280,7 @@ static void Bat_Voltage_Data_Handle()
 //定时1ms调用
 void ANO_LX_Task()
 {
-	static u16 tmp_cnt[2];
+	static u16 tmp_cnt[3];
 	//计10ms
 	tmp_cnt[0]++;
 	tmp_cnt[0] %= 10;
@@ -288,7 +304,17 @@ void ANO_LX_Task()
 			Bat_Voltage_Data_Handle();
 		}
 	}
-	Send_To_Board();
+	
+	// timeout = 20ms
+  tmp_cnt[2]++;
+  tmp_cnt[2] %= 20;
+  if(tmp_cnt[2] == 0)
+  {
+      //发送数据给拓展板
+      Send_To_Board();
+  }
+	// 飞控状态更新
+	FC_DateUpdate();
 	//解析串口接收到的数据
 	DrvUartDataCheck();
 	//GPS数据处理

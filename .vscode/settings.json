@@ -3,6 +3,7 @@
     "user_send.h": "c",
     "ano_lx.h": "c",
     "mid360.h": "c",
-    "lx_fc_state.h": "c"
+    "lx_fc_state.h": "c",
+    "user_control.h": "c"
   }
 }

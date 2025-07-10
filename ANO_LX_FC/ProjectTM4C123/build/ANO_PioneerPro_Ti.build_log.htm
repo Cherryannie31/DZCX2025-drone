@@ -22,74 +22,26 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 C:\Users\Annie\Desktop\Combination\Techniques\Embedded\drone\ANO_LX_FC-2021-7-18 121043\ANO_LX_FC\ProjectTM4C123\ANO_LX_TM4C123.uvprojx
-Project File Date:  06/16/2025
+Project File Date:  06/29/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'E:\Keil\ARM\ARMCompiler_506_Windows_x86_b960\Bin'
-Rebuild target 'Ano_LX'
+Build target 'Ano_LX'
 compiling User_Task.c...
-..\FcSrc\User_Task.c(23): warning:  #177-D: variable "LPFout_x"  was declared but never referenced
-  		static float LPFout_x, LPFout_y;  // Œª÷√Œ¢∑÷¬À≤®
-..\FcSrc\User_Task.c(23): warning:  #177-D: variable "LPFout_y"  was declared but never referenced
-  		static float LPFout_x, LPFout_y;  // Œª÷√Œ¢∑÷¬À≤®
-..\FcSrc\User_Task.c(25): warning:  #550-D: variable "fc_yaw"  was set but never used
-  		static float fc_yaw;
-..\FcSrc\User_Task.c: 3 warnings, 0 errors
-compiling LX_FC_State.c...
-compiling mid360.c...
-compiling LX_FC_EXT_Sensor.c...
-compiling Drv_BSP.c...
-compiling LX_FC_Fun.c...
-compiling main.c...
-compiling Ano_Scheduler.c...
-compiling ANO_DT_LX.c...
-compiling ANO_LX.c...
-compiling Drv_AnoOf.c...
-compiling Ano_Math.c...
-compiling user_data.c...
-..\DriversBsp\user_data.c(67): warning:  #177-D: variable "sum"  was declared but never referenced
-  	u8 sum;
-..\DriversBsp\user_data.c(68): warning:  #177-D: variable "result_qx"  was declared but never referenced
-  	s32 result_pos[3], result_vel[3], result_qx[4], v[3];
-..\DriversBsp\user_data.c(68): warning:  #177-D: variable "v"  was declared but never referenced
-  	s32 result_pos[3], result_vel[3], result_qx[4], v[3];
-..\DriversBsp\user_data.c(69): warning:  #550-D: variable "px"  was set but never used
-  	s32 px, py, pz;
-..\DriversBsp\user_data.c(69): warning:  #550-D: variable "py"  was set but never used
-  	s32 px, py, pz;
-..\DriversBsp\user_data.c(69): warning:  #550-D: variable "pz"  was set but never used
-  	s32 px, py, pz;
-..\DriversBsp\user_data.c(177): warning:  #177-D: variable "sum"  was declared but never referenced
-  	u8 sum;
-..\DriversBsp\user_data.c(178): warning:  #177-D: variable "result_qx"  was declared but never referenced
-  	s32 result_pos[3], result_vel[3], result_qx[4], v[3];
-..\DriversBsp\user_data.c(178): warning:  #177-D: variable "v"  was declared but never referenced
-  	s32 result_pos[3], result_vel[3], result_qx[4], v[3];
-..\DriversBsp\user_data.c(179): warning:  #550-D: variable "px"  was set but never used
-  	s32 px, py, pz;
-..\DriversBsp\user_data.c(179): warning:  #550-D: variable "py"  was set but never used
-  	s32 px, py, pz;
-..\DriversBsp\user_data.c(179): warning:  #550-D: variable "pz"  was set but never used
-  	s32 px, py, pz;
-..\DriversBsp\user_data.c(293): warning:  #177-D: variable "LandTime"  was declared but never referenced
-  	  static s16 LandTime =0;
-..\DriversBsp\user_data.c: 13 warnings, 0 errors
-compiling user_send.c...
-compiling Drv_Sys.c...
-compiling Drv_Adc.c...
-compiling Drv_UbloxGPS.c...
-compiling Drv_Led.c...
-compiling Drv_RcIn.c...
-compiling Drv_PwmOut.c...
-assembling startup_TM4C123.s...
-compiling usb_serial_structs.c...
-compiling system_TM4C123.c...
-compiling Drv_Uart.c...
-compiling Drv_Timer.c...
-compiling Drv_Usb.c...
+..\FcSrc\User_Task.c(38): warning:  #550-D: variable "fc_yaw"  was set but never used
+  	static float fc_yaw;
+..\FcSrc\User_Task.c(263): warning:  #550-D: variable "fc_yaw"  was set but never used
+  	static float fc_yaw;
+..\FcSrc\User_Task.c(13): warning:  #177-D: variable "start_point_xyz"  was declared but never referenced
+  static s32 start_point_xyz[2];
+..\FcSrc\User_Task.c(15): warning:  #177-D: variable "expect_point_xy"  was declared but never referenced
+  static s32 expect_point_xy[5][2] = {{0, 150}, {100, 150}, {100, 250}, {20, 250}, {20, 20}}; // Broken line
+..\FcSrc\User_Task.c(16): warning:  #177-D: variable "expect_point_xy_1"  was declared but never referenced
+  static s32 expect_point_xy_1[5][2] = {{90, 0}, {180, 0}, {180, 150}, {30, 150}, {30, 50}};	// Broken line
+..\FcSrc\User_Task.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=21772 RO-data=1804 RW-data=1644 ZI-data=6820  
-".\build\ANO_PioneerPro_Ti.axf" - 0 Error(s), 16 Warning(s).
+Program Size: Code=20832 RO-data=1804 RW-data=2668 ZI-data=6836  
+".\build\ANO_PioneerPro_Ti.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -102,7 +54,7 @@ Package Vendor: Keil
   E:/Keil/ARM/PACK/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
